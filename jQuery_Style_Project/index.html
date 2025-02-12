@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation & Styling</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+</head>
+<body>
+
+    <div class="container">
+        <h2>jQuery Animation & Styling</h2>
+        <button class="btn" id="animateCard">Animate Card</button>
+        <button class="btn" id="changeColor">Change Color</button>
+        <button class="btn" id="toggleHighlight">Toggle Highlight</button>
+        <button class="btn" id="resetCard">Reset</button>
+
+        <div id="card" class="card">Card Box</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 🔹 jQuery .animate() → কার্ড বড় করে
+            $("#animateCard").on("click", function(){
+                $("#card").animate({
+                    width: "300px",
+                    height: "200px",
+                    fontSize: "22px"
+                }, 500);
+            });
+
+            // 🔹 jQuery .css() → ব্যাকগ্রাউন্ড ও টেক্সট কালার পরিবর্তন করে
+            $("#changeColor").on("click", function(){
+                $("#card").css({
+                    "background": "purple",
+                    "color": "white"
+                });
+            });
+
+            // 🔹 jQuery .toggleClass() → ক্লাস থাকলে সরিয়ে দেয়, না থাকলে যোগ করে
+            $("#toggleHighlight").on("click", function(){
+                $("#card").toggleClass("highlight");
+            });
+
+            // 🔹 jQuery .removeClass() & .addClass() → কার্ড রিসেট করে
+            $("#resetCard").on("click", function(){
+                $("#card").removeClass("big highlight");
+                $("#card").css({
+                    "width": "200px",
+                    "height": "150px",
+                    "fontSize": "18px",
+                    "background": "lightblue",
+                    "color": "black"
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

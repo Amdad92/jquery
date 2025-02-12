@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traversing Example</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <h2>jQuery Traversing Example</h2>
+    
+    <button class="btn" id="findChildren">Find Children</button>
+    <button class="btn" id="findParent">Find Parent</button>
+    <button class="btn" id="findNext">Find Next</button>
+    <button class="btn" id="findSiblings">Find Siblings</button>
+    <button class="btn" id="findClosest">Find Closest</button>
+
+    <ul class="menu">
+        <li id="menu1">Menu 1
+            <ul class="submenu">
+                <li>Submenu 1-1</li>
+                <li>Submenu 1-2</li>
+            </ul>
+        </li>
+        <li id="menu2">Menu 2</li>
+        <li id="menu3">Menu 3</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+            // 🔹 jQuery .children() → সরাসরি চাইল্ড খুঁজবে
+            $("#findChildren").on("click", function(){
+                $("#menu1").children().toggleClass("highlight");
+            });
+
+            // 🔹 jQuery .parent() → প্যারেন্ট খুঁজবে
+            $("#findParent").on("click", function(){
+                $(".submenu li:first").parent().toggleClass("highlight");
+            });
+
+            // 🔹 jQuery .next() → পরবর্তী এলিমেন্ট খুঁজবে
+            $("#findNext").on("click", function(){
+                $("#menu1").next().toggleClass("highlight");
+            });
+
+            // 🔹 jQuery .siblings() → ভাইবোন এলিমেন্ট খুঁজবে
+            $("#findSiblings").on("click", function(){
+                $("#menu2").siblings().toggleClass("highlight");
+            });
+
+            // 🔹 jQuery .closest() → নিকটতম নির্দিষ্ট প্যারেন্ট খুঁজবে
+            $("#findClosest").on("click", function(){
+                $(".submenu li:first").closest(".menu").toggleClass("highlight");
+            });
+        });
+    </script>
+
+</body>
+</html>

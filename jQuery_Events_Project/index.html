@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Event Handling Example</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>jQuery Events Demo</h2>
+        <button class="btn" id="colorChange">Change Box Color</button>
+        <button class="btn" id="showEventInfo">Show Click Position</button>
+        <button class="btn" id="addNewButton">Add New Button</button>
+        
+        <p id="info">Click a button to see the effect.</p>
+        
+        <div id="box" style="width: 200px; height: 100px; background: lightblue; margin: 20px auto; line-height: 100px; font-size: 18px; font-weight: bold; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+            Box
+        </div>
+        
+        <div id="buttonContainer"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 🔹 on() Method for Click Event
+            $("#colorChange").on("click", function(){
+                $("#box").css("background-color", "lightcoral").text("Color Changed!");
+            });
+
+            // 🔹 Using Event Object
+            $("#showEventInfo").on("click", function(event){
+                $("#info").text("Mouse Position: X=" + event.pageX + " Y=" + event.pageY);
+            });
+
+            // 🔹 Using event.currentTarget
+            $(".btn").on("click", function(event){
+                console.log("Clicked button: " + $(event.currentTarget).text());
+            });
+
+            // 🔹 on() Method Chaining
+            $("#colorChange")
+                .on("mouseenter", function(){ $(this).css("background", "#ff6f61"); })
+                .on("mouseleave", function(){ $(this).css("background", "#007bff"); });
+
+            // 🔹 Adding New Button Dynamically
+            $("#addNewButton").on("click", function(){
+                $("#buttonContainer").append('<button class="btn dynamic-btn">New Dynamic Button</button>');
+            });
+
+            // 🔹 on() for Dynamic Elements
+            $(document).on("click", ".dynamic-btn", function(){
+                alert("New Button Clicked!");
+            });
+        });
+    </script>
+
+</body>
+</html>

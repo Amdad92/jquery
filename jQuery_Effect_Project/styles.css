@@ -1,0 +1,65 @@
+ /* General Styles */
+ body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Box Styling */
+#box {
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    text-align: center;
+    line-height: 150px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    display: none; /* Initially Hidden */
+    transition: all 0.4s ease-in-out;
+}
+
+/* Button Styling */
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Different button colors */
+#show { background-color: #28a745; color: white; }
+#hide { background-color: #dc3545; color: white; }
+#toggle { background-color: #ffc107; color: black; }
+#slideDown { background-color: #17a2b8; color: white; }
+#slideUp { background-color: #6610f2; color: white; }
+#slideToggle { background-color: #e83e8c; color: white; }
+#fadeIn { background-color: #007bff; color: white; }
+#fadeOut { background-color: #6c757d; color: white; }
+#fadeToggle { background-color: #fd7e14; color: white; }
+
+/* Button hover effect */
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
